@@ -352,8 +352,7 @@
 
       
         
-          
-            <h3 id="持久层、业务层、展现层"><a href="#持久层、业务层、展现层" class="headerlink" title="持久层、业务层、展现层"></a>持久层、业务层、展现层</h3><ol>
+          <h3 id="持久层、业务层、展现层"><a href="#持久层、业务层、展现层" class="headerlink" title="持久层、业务层、展现层"></a>持久层、业务层、展现层</h3><ol>
 <li>持久层：数据访问层又称为DAL层，有时候也称为是持久层，其功能主要是负责数据库的访问。 简单的说法就是实现对数据表的Select（查询），Insert（插入），Update（更新），Delete（删除）等操作。 如果要加入ORM的元素，那么就会包括对象和数据表之间的mapping，以及对象实体的持久化。</li>
 <li>业务层：</li>
 <li>展现层：</li>
@@ -362,48 +361,13 @@
 <p>一個JavaServer頁麵的組件類型為Java servlet，其目的是實現一個用戶界麵的Java Web應用程序。 Web開發人員編寫JSP為文本文件，結合HTML或XHTML代碼，XML元素，並嵌入JSP動作和命令。</p>
 <p>使用JSP，用戶通過網頁形式，從數據庫或其他來源目前記錄收集輸入，並動態創建的網頁。</p>
 <p>JSP標簽可用於各種目的，例如從數據庫中檢索信息或登記的用戶偏好，訪問JavaBeans組件，傳遞頁麵之間的控製和請求，網頁等之間共享信息</p>
-<h3 id="什么是事务-管理"><a href="#什么是事务-管理" class="headerlink" title="什么是事务(管理)"></a>什么是事务(管理)</h3><p>我们在实际业务场景中，经常会遇到数据频繁修改读取的问题。在同一时刻，不同的业务逻辑对同一个表数据进行修改，这种冲突很可能造成数据不可挽回的错乱，所以我们需要用事务来对数据进行管理。</p>
-<p>事务必须服从ACID原则。ACID指的是原子性（atomicity）、一致性（consistency）、隔离性（isolation）和持久性（durability）。<br>通俗理解，事务其实就是一系列指令的集合。</p>
-<ul>
-<li>原子性：操作这些指令时，要么全部执行成功，要么全部不执行。只要其中一个指令执行失败，所有的指令都执行失败，数据进行回滚，回到执行指令前的数据状态。</li>
-<li>一致性：事务的执行使数据从一个状态转换为另一个状态，但是对于整个数据的完整性保持稳定。</li>
-<li>隔离性：在该事务执行的过程中，无论发生的任何数据的改变都应该只存在于该事务之中，对外界不存在任何影响。只有在事务确定正确提交之后，才会显示该事务对数据的改变。其他事务才能获取到这些改变后的数据。</li>
-<li>持久性：当事务正确完成后，它对于数据的改变是永久性的。</li>
-</ul>
-<p><a href="https://blog.csdn.net/gloomy_114/article/details/62048335" target="_blank" rel="noopener">Spring事务管理（一）什么是事务？</a><br><a href="https://blog.csdn.net/gloomy_114/article/details/62233564" target="_blank" rel="noopener">Spring事务管理（二）Spring中的事务管控</a><br><a href="https://blog.csdn.net/gloomy_114/article/details/64443393" target="_blank" rel="noopener">Spring事务管理（三）使用tx标签</a></p>
-<h3 id="异常-SQLErrorCodes-loaded-DB2-Derby-H2-HSQL-Informix-MS-SQL-MySQL-Oracle-PostgreSQL-Sybase"><a href="#异常-SQLErrorCodes-loaded-DB2-Derby-H2-HSQL-Informix-MS-SQL-MySQL-Oracle-PostgreSQL-Sybase" class="headerlink" title="异常 SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]"></a>异常 SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]</h3><p>使用Spring 的JDBCtemplate 调用数据库的时候<br>出现了如下的问题：<br><code>SQLErrorCodes loaded: [DB2, Derby, H2, HSQL, Informix, MS-SQL, MySQL, Oracle, PostgreSQL, Sybase]</code><br>同时会出现什么<code>Could not retrieve transation read-only status server</code>之类的报错并提示sql语句有问题，一定要多检查！！<br>这个一般是因为SQL语句出错  会报这样的错误。<br>这个时候关注Sql 语句的格式(单引号吖逗号啊等等) 以及字段长度 的问题。<br>这类问题一般是数据库的字段和输入的数据库的数据类型不匹配。比如一个int字段 数据库设置只为int   length 为5  如果你用的sqlYong软件或其他软件在该程序中加了一个length为6的，就会报出次错误，又或者，你输入一个不正确的date格式，数据库会自动转换成0000-00-00，mybatis会识别，这也是一个不正确的，解决办法，就是修改字段类型或者修改数据，使其一致即可。</p>
-<h3 id="Navicat连接数据库MySQL报错2059"><a href="#Navicat连接数据库MySQL报错2059" class="headerlink" title="Navicat连接数据库MySQL报错2059"></a>Navicat连接数据库MySQL报错2059</h3><p>解释原因：据说，mysql8 之前的版本中加密规则是mysql_native_password,而在mysql8之后,加密规则是caching_sha2_password, 解决问题方法有两种,一种是升级navicat驱动,一种是把mysql用户登录密码加密规则还原成mysql_native_password. 现在说第二种方式<br>命令行进入MySQL数据库<br>输入以下指令，逐行输入，每行后加一个回车:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;password&#39; PASSWORD EXPIRE NEVER; #修改加密规则 </span><br><span class="line">ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;; #更新用户密码为123456当然也可以自己指定</span><br><span class="line">FLUSH PRIVILEGES; #刷新权限</span><br></pre></td></tr></table></figure>
-<p>原文链接：<a href="https://blog.csdn.net/CheneyKKE/article/details/80272777" target="_blank" rel="noopener">https://blog.csdn.net/CheneyKKE/article/details/80272777</a></p>
-<h3 id="IDEA中配置MySQL出现Server-returns-invalid-timezone"><a href="#IDEA中配置MySQL出现Server-returns-invalid-timezone" class="headerlink" title="IDEA中配置MySQL出现Server returns invalid timezone"></a>IDEA中配置MySQL出现Server returns invalid timezone</h3><p>首先，出现该问题的原因是MySQL驱动jar中的默认时区是UTC。</p>
-<p>UTC代表的是全球标准时间 ，但是我们使用的时间是北京时区也就是东八区，领先UTC八个小时。</p>
-<p>因为时区不一致，所以提示Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezone’ property manually<br>服务器返回了无效的时区，去“高级”标签中手工设置“serverTimezon”属性值。</p>
-<p><img src="http://q76b0kevb.bkt.clouddn.com/error_spring_0001.png" alt="修改"></p>
-<h3 id="mysql设置事务隔离级别"><a href="#mysql设置事务隔离级别" class="headerlink" title="mysql设置事务隔离级别"></a>mysql设置事务隔离级别</h3><p>事务隔离级别指的是在处理同一个数据的多个事务中，一个事务修改数据后，其他事务何时能看到修改后的结果。<br><strong>MySQL数据库事务隔离级别主要有四种：</strong></p>
-<ul>
-<li>Serializable 串行化，一个事务一个事务的执行</li>
-<li>Repeatable read 可重复读，无论其他事务是否修改并提交了数据，在这个事务中看到的数据值始终不受其他事务影响</li>
-<li>Read committed 读取已提交，其他事务提交了对数据的修改后，本事务就能读取到修改后的数据值</li>
-<li>Read uncommitted 读取未提交，其他事务只要修改了数据，即使未提交，本事务也能看到修改后的数据值。</li>
-</ul>
-<p>MySQL数据库默认使用可重复读（ Repeatable read），而使用乐观锁的时候，如果一个事务修改了库存并提交了事务，那其他的事务应该可以读取到修改后的数据值，所以不能使用可重复读的隔离级别，应该修改为读取已提交Read committed。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 修改全局事务隔离级别，有以上四个可选参数</span><br><span class="line">mysql&gt; set global transaction isolation level read committed;</span><br><span class="line"># 修改当前会话的事务隔离级别</span><br><span class="line">mysql&gt; set session transaction isolation level read committed;</span><br><span class="line"># 查看事务隔离级别</span><br><span class="line">mysql&gt; SHOW VARIABLES LIKE &#39;%iso%&#39;;</span><br></pre></td></tr></table></figure>
-<p><strong>注意：</strong>这里修改事务权限的语句是：<code>set [ global | session ] transaction isolation level Read uncommitted | Read committed | Repeatable | Serializable;</code></p>
-<p>如果选择global，意思是此语句将应用于之后的所有session，而当前已经存在的session不受影响。</p>
-<p>如果选择session，意思是此语句将应用于当前session内之后的所有事务。</p>
-<p>如果什么都不写，意思是此语句将应用于当前session内的下一个还未开始的事务。<br><em>重启了电脑之后，mysql的配置是会还原的，所以重启电脑之后需要重新设置一下</em></p>
-<h3 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h3><p>回滚（英语：rollback）是数据库技术中的操作，放弃修改，使数据库状态恢复到此前的某个时刻。这对数据完整性具有关键意义。回滚是数据库事务管理重要一环。</p>
-<p>回滚特性通常用数据库日志实现，但也可以用多版本并发控制实现。</p>
-<h3 id="servlet是什么呢？"><a href="#servlet是什么呢？" class="headerlink" title="servlet是什么呢？"></a>servlet是什么呢？</h3><h3 id="报错Cannot-resolve-taglib-with-uri-http-java-sun-com-jsp-jstl-core"><a href="#报错Cannot-resolve-taglib-with-uri-http-java-sun-com-jsp-jstl-core" class="headerlink" title="报错Cannot resolve taglib with uri http://java.sun.com/jsp/jstl/core"></a>报错Cannot resolve taglib with uri <a href="http://java.sun.com/jsp/jstl/core" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core</a></h3><p>照着教程写的.jsp文件打开时出现报错，大概就是缺少jar包之类的，解决办法如下：<br><img src="http://q76b0kevb.bkt.clouddn.com/error_spring_0002.png" alt=""></p>
-<h3 id="关于jetty运行报错的问题："><a href="#关于jetty运行报错的问题：" class="headerlink" title="关于jetty运行报错的问题："></a>关于jetty运行报错的问题：</h3><p>测试的时候<code>jdbcTemplate.update(String sql,Object[] args)</code>方法调用一直报错，后来修改成了最原始的<code>jdbcTemplate.update(String sql)</code>方法后得以解决，就是书写太麻烦了：<br><img src="http://q76b0kevb.bkt.clouddn.com/error_spring_0004.png" alt=""><br>希望可以尝试到别的解决办法。<br>解决了测试的问题之后，project还是无法运行，我把代码拷贝给了小洪，他说只是简单的改了下jdk和maven配置，然后修改了数据库密码就能正常运行了。开始我检查了一遍没有问题，但是我输错了url，所以一直是404。找到正确的url以后，jetty又报错无法解析JSP:<br><img src="http://q76b0kevb.bkt.clouddn.com/error_spring_0003.png" alt=""><br>我简直要崩溃了，在小洪的教导下耐心的Google到了一个<a href="https://blog.csdn.net/weixin_38997311/article/details/80626757" target="_blank" rel="noopener">解决方案</a>：<br>“在网上查了相关错误，有的说是jetty跟所使用的jdk版本不匹配导致的。所以我去网上找了最新的jetty插件，发现已经换了网站了这个插件，现在是在eclipse的官网上，所以我看了最新插件的使用方式后，换了插件配置信息，把原先的换成以下：”</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- maven测试插件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jetty-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.11.v20180605<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>于是jetty:run正常运行了，大功告成。艹！</p>
-<h3 id="在IDEA中配置Tomcat容器"><a href="#在IDEA中配置Tomcat容器" class="headerlink" title="在IDEA中配置Tomcat容器"></a>在IDEA中配置Tomcat容器</h3><p>另外补充一下用Tomcat运行project的方法，小洪教我的，首先Google一下Tomcat安装教程，把Tomcat安装好，然后在IDEA中进行配置：<br>1.<br><img src="http://q76b0kevb.bkt.clouddn.com/tomcat_1.png" alt=""></p>
-<p>2.<br><img src="http://q76b0kevb.bkt.clouddn.com/tomcat_2.png" alt=""></p>
-<p>3.<br><img src="http://q76b0kevb.bkt.clouddn.com/tomcat_3.png" alt=""></p>
-<p>4.<br><img src="http://q76b0kevb.bkt.clouddn.com/tomcat_4.png" alt=""></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/tinkerbaby.github.io/2020/03/18/String%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
