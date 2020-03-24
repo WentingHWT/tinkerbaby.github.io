@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/tinkerbaby.github.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/tinkerbaby.github.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/tinkerbaby.github.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/tinkerbaby.github.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/tinkerbaby.github.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/tinkerbaby.github.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/tinkerbaby.github.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,Polymorphism,Inherit," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="示例中定义了一个基类(父类、超类)Employee，然后class Manager extends Employee： 123456789101112class Employee &amp;#123;private static int nextId &#x3D; 1;private String name;private double salary;private int id;&#x2F;&#x2F;......&#x2F;&#x2F;..省略get">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈Java中的继承">
+<meta property="og:url" content="https://wentinghwt.github.io/tinkerbaby.github.io/2020/03/24/%E6%B5%85%E8%B0%88Java%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF/index.html">
+<meta property="og:site_name" content="Tinkerbaby&#39;s Blog">
+<meta property="og:description" content="示例中定义了一个基类(父类、超类)Employee，然后class Manager extends Employee： 123456789101112class Employee &amp;#123;private static int nextId &#x3D; 1;private String name;private double salary;private int id;&#x2F;&#x2F;......&#x2F;&#x2F;..省略get">
+<meta property="article:published_time" content="2020-03-24T02:41:55.000Z">
+<meta property="article:modified_time" content="2020-03-24T02:45:59.938Z">
+<meta property="article:author" content="Wenting HAN">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="Polymorphism">
+<meta property="article:tag" content="Inherit">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/tinkerbaby.github.io/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://wentinghwt.github.io/tinkerbaby.github.io/2020/03/24/浅谈Java中的继承/"/>
+
+
+
+
+
+  <title>浅谈Java中的继承 | Tinkerbaby's Blog</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/tinkerbaby.github.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Tinkerbaby's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Keep working! Keep cute!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/tinkerbaby.github.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/tinkerbaby.github.io/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tinkerbaby.github.io/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/tinkerbaby.github.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/tinkerbaby.github.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://wentinghwt.github.io/tinkerbaby.github.io/tinkerbaby.github.io/2020/03/24/%E6%B5%85%E8%B0%88Java%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Wenting HAN">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/tinkerbaby.github.io/images/logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Tinkerbaby's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">浅谈Java中的继承</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-24T10:41:55+08:00">
+                2020-03-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>示例中定义了一个基类(父类、超类)<code>Employee</code>，然后<code>class Manager extends Employee</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> nextId = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">private</span> String name;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">double</span> salary;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"><span class="comment">//......</span></span><br><span class="line"><span class="comment">//..省略getter和setter以及构造方法...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Manager</span> <span class="keyword">extends</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> bonus; <span class="comment">//奖金</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="类、超类和子类"><a href="#类、超类和子类" class="headerlink" title="类、超类和子类"></a>类、超类和子类</h2><h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a>super关键字</h3><p>这里我们希望调用超类中的getSalary()方法，而不是自调用，需要使用特定的关键字<code>super</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用超类中带有n,s,year,month,day参数的构造器</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">Manager</span><span class="params">(String n, <span class="keyword">double</span> s, <span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(n,s,year,month,day);<span class="comment">//必须写在第一句</span></span><br><span class="line">	bonus = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//普通方法</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSalary</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">double</span> baseSalary = <span class="keyword">super</span>.getSalary();<span class="comment">//调用超类中的getSalary()方法</span></span><br><span class="line">	<span class="keyword">return</span> baseSalary + bonus;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><em>注意：<code>super</code>不是对象的引用，和<code>this</code>不同，它只是一个指示编译器调用超类方法的特殊关键字</em></p>
+<ul>
+<li><strong>不能删除继承的任何域和方法</strong></li>
+<li><strong>如果父类没有不带参数的构造器，子类又没有显示调用其他超类带构造器，系统会报错。</strong></li>
+</ul>
+<a id="more"></a>
+
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>一个对象变量可以指示多种实际类型的现象被称为多态(Polymorphism).在运行时能够自动地选择调用哪个方法的现象称为动态绑定。<br>一个判断是否应该设计为继承关系的规则：”is-a”规则。</p>
+<ul>
+<li><strong>动态绑定和静态绑定</strong></li>
+</ul>
+<ol>
+<li><strong>动态绑定</strong>是指在类的继承关系中，编译器在调用函数时可以根据声明类型、方法名、参数去动态调用与之完全匹配的方法。优先调用当前声明的子类的方法<br>一个类中，方法名字和参数列表称为方法的签名，而返回类型不是方法的签名。子类中可以覆盖超类中相同签名的方法，因此在覆盖方法是们一定要保证返回类型的兼容性。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设在超类Employee中有：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getBuddy</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line"><span class="comment">//子类Manager要覆盖这个方法：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Manager <span class="title">getBuddy</span><span class="params">()</span> </span>&#123;...&#125;<span class="comment">//It's ok to change the return type</span></span><br></pre></td></tr></table></figure></li>
+<li>如果是private、static、final方法或着构造器，那么编译器可以准确地知道调用什么方法，这种调用方式称为<strong>静态绑定</strong>。</li>
+</ol>
+<p><strong>注意：再覆盖方法时，子类方法不能低于超类方法的可见性(public&gt;private)</strong></p>
+<h3 id="final关键字：阻止继承"><a href="#final关键字：阻止继承" class="headerlink" title="final关键字：阻止继承"></a>final关键字：阻止继承</h3><p>在定义类的时候使用final修饰符阻止人们定义该类的子类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Executive</span> <span class="keyword">extends</span> <span class="title">Manager</span> </span>&#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>类中的特定方法也可以被声明为<code>final</code>，这样做子类就不能再覆盖这个方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	...</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">final</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>域也可以被声明为<code>final</code>。对于<code>fianl域</code>，构造对象之后就不允许改变它们的值了。不过如果将一个类声明为final，只有其中的方法自动地成为<code>final</code>，而不包括域。</p>
+<h3 id="强制类型转换"><a href="#强制类型转换" class="headerlink" title="强制类型转换"></a>强制类型转换</h3><p>将一个子类的引用赋给一个超类变量，编译器是允许的。但将一个超类的引用赋值给一个子类变量，必须进行类型转换。为避免<code>ClassCastException</code>异常，应该养成一个良好的程序设计习惯：在进行类型转换之前，先查一下能否成功地转换，使用<code>instanceof</code>运算符：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (staff[<span class="number">1</span>] <span class="keyword">instanceof</span> Manager) &#123;</span><br><span class="line">	boss = (Manager) staff[<span class="number">1</span>];</span><br><span class="line">	...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>只能在继承层次上进行类型转换</li>
+<li>在将超类转换成子类之前，应该使用<code>instanceof</code>进行检查</li>
+</ul>
+<p><strong>在一般情况下，应该尽量少用类型转换和<code>instanceof</code>运算符</strong></p>
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p>使用<code>abstract</code>关键字的方法，不需要实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">getDescription</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//no implementation required</span></span><br></pre></td></tr></table></figure>
+<p>包含一个或多个抽象方法的类本身必须被声明为抽象的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String n)</span> </span>&#123;</span><br><span class="line">		name = n;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//抽象方法的具体实现在子类中</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">getDescription</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>抽象类的子类如果没有实现所有的抽象方法，则必须将子类也标为抽象类，因为这种情况下子类中还是有抽象方法。<br><strong>抽象类不能被实例化</strong>，但可以创建一个具体子类的对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> Person(<span class="string">"Vincent"</span>);<span class="comment">//error</span></span><br><span class="line"></span><br><span class="line">Person p = <span class="keyword">new</span> Student(<span class="string">"Vincent"</span>,<span class="string">"Economics"</span>);<span class="comment">//ok!</span></span><br><span class="line"></span><br><span class="line">Person[] people = <span class="keyword">new</span> Person[<span class="number">2</span>];</span><br><span class="line">people[<span class="number">0</span>] = <span class="keyword">new</span> Student(...);</span><br><span class="line">people[<span class="number">1</span>] = <span class="keyword">new</span> Employee(...);</span><br><span class="line"><span class="keyword">for</span> (Person p:people) &#123;</span><br><span class="line">	System.out.println(p.getName()+<span class="string">","</span>+p.getDescription());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//如果我们省略超类中的getDescription()方法，而仅在子类中定义该方法，那我们就不能通过变量p调用getDescription方法了。</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Object-所有类的超类"><a href="#Object-所有类的超类" class="headerlink" title="Object:所有类的超类"></a>Object:所有类的超类</h2><p>Object类是Java中所有类的超类，即Java中每个类都是由它拓展而来。只有基本类型(primitive types)不是对象，例如数值、字符、布尔类型。所有的数组类，不管是对象数组还是基本类型的数组都拓展自Object类。</p>
+<p><strong>未完待续….</strong></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tinkerbaby.github.io/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tinkerbaby.github.io/tags/Polymorphism/" rel="tag"># Polymorphism</a>
+          
+            <a href="/tinkerbaby.github.io/tags/Inherit/" rel="tag"># Inherit</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/tinkerbaby.github.io/2020/03/19/Spring-Data-JPA%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="Spring Data JPA学习笔记">
+                <i class="fa fa-chevron-left"></i> Spring Data JPA学习笔记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/tinkerbaby.github.io/images/logo.jpg"
+                alt="Wenting HAN" />
+            
+              <p class="site-author-name" itemprop="name">Wenting HAN</p>
+              <p class="site-description motion-element" itemprop="description">software engineering</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/tinkerbaby.github.io/archives/%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/tinkerbaby.github.io/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tinkerbaby.github.io/tags/index.html">
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类、超类和子类"><span class="nav-number">1.</span> <span class="nav-text">类、超类和子类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#super关键字"><span class="nav-number">1.1.</span> <span class="nav-text">super关键字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">1.2.</span> <span class="nav-text">多态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#final关键字：阻止继承"><span class="nav-number">1.3.</span> <span class="nav-text">final关键字：阻止继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强制类型转换"><span class="nav-number">1.4.</span> <span class="nav-text">强制类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象类"><span class="nav-number">1.5.</span> <span class="nav-text">抽象类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-所有类的超类"><span class="nav-number">2.</span> <span class="nav-text">Object:所有类的超类</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Wenting HAN</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/tinkerbaby.github.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/tinkerbaby.github.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/tinkerbaby.github.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/tinkerbaby.github.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/tinkerbaby.github.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/tinkerbaby.github.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/tinkerbaby.github.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/tinkerbaby.github.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/tinkerbaby.github.io/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/tinkerbaby.github.io/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/tinkerbaby.github.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/tinkerbaby.github.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/tinkerbaby.github.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
