@@ -85,16 +85,16 @@
 <meta property="og:url" content="https://wentinghwt.github.io/tinkerbaby.github.io/2020/03/18/String%E5%85%A5%E9%97%A8%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Tinkerbaby&#39;s Blog">
 <meta property="og:description" content="持久层、业务层、展现层 持久层：数据访问层又称为DAL层，有时候也称为是持久层，其功能主要是负责数据库的访问。 简单的说法就是实现对数据表的Select（查询），Insert（插入），Update（更新），Delete（删除）等操作。 如果要加入ORM的元素，那么就会包括对象和数据表之间的mapping，以及对象实体的持久化。 业务层： 展现层：  什么是JSP?JavaServer Pages（">
-<meta property="og:image" content="http://q76b0kevb.bkt.clouddn.com/error_spring_0001.png">
-<meta property="og:image" content="http://q76b0kevb.bkt.clouddn.com/error_spring_0002.png">
-<meta property="og:image" content="http://q76b0kevb.bkt.clouddn.com/error_spring_0004.png">
-<meta property="og:image" content="http://q76b0kevb.bkt.clouddn.com/error_spring_0003.png">
-<meta property="og:image" content="http://q76b0kevb.bkt.clouddn.com/tomcat_1.png">
-<meta property="og:image" content="http://q76b0kevb.bkt.clouddn.com/tomcat_2.png">
-<meta property="og:image" content="http://q76b0kevb.bkt.clouddn.com/tomcat_3.png">
-<meta property="og:image" content="http://q76b0kevb.bkt.clouddn.com/tomcat_4.png">
+<meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0001.png">
+<meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0002.png">
+<meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0004.png">
+<meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0003.png">
+<meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_1.png">
+<meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_2.png">
+<meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_3.png">
+<meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_4.png">
 <meta property="article:published_time" content="2020-03-18T04:01:49.000Z">
-<meta property="article:modified_time" content="2020-03-24T02:44:44.482Z">
+<meta property="article:modified_time" content="2020-04-08T10:20:36.275Z">
 <meta property="article:author" content="Wenting HAN">
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="Jetty">
@@ -103,7 +103,7 @@
 <meta property="article:tag" content="Error">
 <meta property="article:tag" content="Configuration">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://q76b0kevb.bkt.clouddn.com/error_spring_0001.png">
+<meta name="twitter:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0001.png">
 
 
 
@@ -392,7 +392,7 @@
 <h3 id="IDEA中配置MySQL出现Server-returns-invalid-timezone"><a href="#IDEA中配置MySQL出现Server-returns-invalid-timezone" class="headerlink" title="IDEA中配置MySQL出现Server returns invalid timezone"></a>IDEA中配置MySQL出现Server returns invalid timezone</h3><p>首先，出现该问题的原因是MySQL驱动jar中的默认时区是UTC。</p>
 <p>UTC代表的是全球标准时间 ，但是我们使用的时间是北京时区也就是东八区，领先UTC八个小时。</p>
 <p>因为时区不一致，所以提示Server returns invalid timezone. Go to ‘Advanced’ tab and set ‘serverTimezone’ property manually<br>服务器返回了无效的时区，去“高级”标签中手工设置“serverTimezon”属性值。</p>
-<p><img src="http://q76b0kevb.bkt.clouddn.com/error_spring_0001.png" alt="修改"></p>
+<p><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0001.png" alt="修改"></p>
 <h3 id="mysql设置事务隔离级别"><a href="#mysql设置事务隔离级别" class="headerlink" title="mysql设置事务隔离级别"></a>mysql设置事务隔离级别</h3><p>事务隔离级别指的是在处理同一个数据的多个事务中，一个事务修改数据后，其他事务何时能看到修改后的结果。<br><strong>MySQL数据库事务隔离级别主要有四种：</strong></p>
 <ul>
 <li>Serializable 串行化，一个事务一个事务的执行</li>
@@ -408,14 +408,14 @@
 <p>如果什么都不写，意思是此语句将应用于当前session内的下一个还未开始的事务。<br><em>重启了电脑之后，mysql的配置是会还原的，所以重启电脑之后需要重新设置一下</em></p>
 <h3 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h3><p>回滚（英语：rollback）是数据库技术中的操作，放弃修改，使数据库状态恢复到此前的某个时刻。这对数据完整性具有关键意义。回滚是数据库事务管理重要一环。</p>
 <p>回滚特性通常用数据库日志实现，但也可以用多版本并发控制实现。</p>
-<h3 id="servlet是什么呢？"><a href="#servlet是什么呢？" class="headerlink" title="servlet是什么呢？"></a>servlet是什么呢？</h3><h3 id="报错Cannot-resolve-taglib-with-uri-http-java-sun-com-jsp-jstl-core"><a href="#报错Cannot-resolve-taglib-with-uri-http-java-sun-com-jsp-jstl-core" class="headerlink" title="报错Cannot resolve taglib with uri http://java.sun.com/jsp/jstl/core"></a>报错Cannot resolve taglib with uri <a href="http://java.sun.com/jsp/jstl/core" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core</a></h3><p>照着教程写的.jsp文件打开时出现报错，大概就是缺少jar包之类的，解决办法如下：<br><img src="http://q76b0kevb.bkt.clouddn.com/error_spring_0002.png" alt=""></p>
-<h3 id="关于jetty运行报错的问题："><a href="#关于jetty运行报错的问题：" class="headerlink" title="关于jetty运行报错的问题："></a>关于jetty运行报错的问题：</h3><p>测试的时候<code>jdbcTemplate.update(String sql,Object[] args)</code>方法调用一直报错，后来修改成了最原始的<code>jdbcTemplate.update(String sql)</code>方法后得以解决，就是书写太麻烦了：<br><img src="http://q76b0kevb.bkt.clouddn.com/error_spring_0004.png" alt=""><br>希望可以尝试到别的解决办法。<br>解决了测试的问题之后，project还是无法运行，我把代码拷贝给了小洪，他说只是简单的改了下jdk和maven配置，然后修改了数据库密码就能正常运行了。开始我检查了一遍没有问题，但是我输错了url，所以一直是404。找到正确的url以后，jetty又报错无法解析JSP:<br><img src="http://q76b0kevb.bkt.clouddn.com/error_spring_0003.png" alt=""><br>我简直要崩溃了，在小洪的教导下耐心的Google到了一个<a href="https://blog.csdn.net/weixin_38997311/article/details/80626757" target="_blank" rel="noopener">解决方案</a>：<br>“在网上查了相关错误，有的说是jetty跟所使用的jdk版本不匹配导致的。所以我去网上找了最新的jetty插件，发现已经换了网站了这个插件，现在是在eclipse的官网上，所以我看了最新插件的使用方式后，换了插件配置信息，把原先的换成以下：”</p>
+<h3 id="servlet是什么呢？"><a href="#servlet是什么呢？" class="headerlink" title="servlet是什么呢？"></a>servlet是什么呢？</h3><h3 id="报错Cannot-resolve-taglib-with-uri-http-java-sun-com-jsp-jstl-core"><a href="#报错Cannot-resolve-taglib-with-uri-http-java-sun-com-jsp-jstl-core" class="headerlink" title="报错Cannot resolve taglib with uri http://java.sun.com/jsp/jstl/core"></a>报错Cannot resolve taglib with uri <a href="http://java.sun.com/jsp/jstl/core" target="_blank" rel="noopener">http://java.sun.com/jsp/jstl/core</a></h3><p>照着教程写的.jsp文件打开时出现报错，大概就是缺少jar包之类的，解决办法如下：<br><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0002.png" alt=""></p>
+<h3 id="关于jetty运行报错的问题："><a href="#关于jetty运行报错的问题：" class="headerlink" title="关于jetty运行报错的问题："></a>关于jetty运行报错的问题：</h3><p>测试的时候<code>jdbcTemplate.update(String sql,Object[] args)</code>方法调用一直报错，后来修改成了最原始的<code>jdbcTemplate.update(String sql)</code>方法后得以解决，就是书写太麻烦了：<br><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0004.png" alt=""><br>希望可以尝试到别的解决办法。<br>解决了测试的问题之后，project还是无法运行，我把代码拷贝给了小洪，他说只是简单的改了下jdk和maven配置，然后修改了数据库密码就能正常运行了。开始我检查了一遍没有问题，但是我输错了url，所以一直是404。找到正确的url以后，jetty又报错无法解析JSP:<br><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0003.png" alt=""><br>我简直要崩溃了，在小洪的教导下耐心的Google到了一个<a href="https://blog.csdn.net/weixin_38997311/article/details/80626757" target="_blank" rel="noopener">解决方案</a>：<br>“在网上查了相关错误，有的说是jetty跟所使用的jdk版本不匹配导致的。所以我去网上找了最新的jetty插件，发现已经换了网站了这个插件，现在是在eclipse的官网上，所以我看了最新插件的使用方式后，换了插件配置信息，把原先的换成以下：”</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- maven测试插件 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.eclipse.jetty<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>jetty-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>9.4.11.v20180605<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>于是jetty:run正常运行了，大功告成。艹！</p>
-<h3 id="在IDEA中配置Tomcat容器"><a href="#在IDEA中配置Tomcat容器" class="headerlink" title="在IDEA中配置Tomcat容器"></a>在IDEA中配置Tomcat容器</h3><p>另外补充一下用Tomcat运行project的方法，小洪教我的，首先Google一下Tomcat安装教程，把Tomcat安装好，然后在IDEA中进行配置：<br>1.<br><img src="http://q76b0kevb.bkt.clouddn.com/tomcat_1.png" alt=""></p>
-<p>2.<br><img src="http://q76b0kevb.bkt.clouddn.com/tomcat_2.png" alt=""></p>
-<p>3.<br><img src="http://q76b0kevb.bkt.clouddn.com/tomcat_3.png" alt=""></p>
-<p>4.<br><img src="http://q76b0kevb.bkt.clouddn.com/tomcat_4.png" alt=""></p>
+<h3 id="在IDEA中配置Tomcat容器"><a href="#在IDEA中配置Tomcat容器" class="headerlink" title="在IDEA中配置Tomcat容器"></a>在IDEA中配置Tomcat容器</h3><p>另外补充一下用Tomcat运行project的方法，小洪教我的，首先Google一下Tomcat安装教程，把Tomcat安装好，然后在IDEA中进行配置：<br>1.<br><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_1.png" alt=""></p>
+<p>2.<br><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_2.png" alt=""></p>
+<p>3.<br><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_3.png" alt=""></p>
+<p>4.<br><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_4.png" alt=""></p>
 
       
     </div>
