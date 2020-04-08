@@ -339,6 +339,15 @@
 <li><strong>不能删除继承的任何域和方法</strong></li>
 <li><strong>如果父类没有不带参数的构造器，子类又没有显示调用其他超类带构造器，系统会报错。</strong></li>
 </ul>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>一个对象变量可以指示多种实际类型的现象被称为多态(Polymorphism).在运行时能够自动地选择调用哪个方法的现象称为动态绑定。<br>一个判断是否应该设计为继承关系的规则：”is-a”规则。</p>
+<ul>
+<li><strong>动态绑定和静态绑定</strong></li>
+</ul>
+<ol>
+<li><strong>动态绑定</strong>是指在类的继承关系中，编译器在调用函数时可以根据声明类型、方法名、参数去动态调用与之完全匹配的方法。优先调用当前声明的子类的方法<br>一个类中，方法名字和参数列表称为方法的签名，而返回类型不是方法的签名。子类中可以覆盖超类中相同签名的方法，因此在覆盖方法是们一定要保证返回类型的兼容性。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//假设在超类Employee中有：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Employee <span class="title">getBuddy</span><span class="params">()</span> </span>&#123;...&#125;</span><br><span class="line"><span class="comment">//子类Manager要覆盖这个方法：</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> Manager <span class="title">getBuddy</span><span class="params">()</span> </span>&#123;...&#125;<span class="comment">//It's ok to change the return type</span></span><br></pre></td></tr></table></figure></li>
+<li>如果是private、static、final方法或着构造器，那么编译器可以准确地知道调用什么方法，这种调用方式称为<strong>静态绑定</strong>。</li>
+</ol>
+<p><strong>注意：再覆盖方法时，子类方法不能低于超类方法的可见性(public&gt;private)</strong></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/tinkerbaby.github.io/2020/03/24/%E6%B5%85%E8%B0%88Java%E4%B8%AD%E7%9A%84%E7%BB%A7%E6%89%BF/#more" rel="contents">
