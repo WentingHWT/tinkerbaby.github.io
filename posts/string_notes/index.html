@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="持久层、业务层、展现层 持久层：数据访问层又称为DAL层，有时候也称为是持久层，其功能主要是负责数据库的访问。 简单的说法就是实现对数据表的Select（查询），Insert（插入），Update（更新），Delete（删除）等操作。 如果要加入ORM的元素，那么就会包括对象和数据表之间的mapping，以及对象实体的持久化。 业务层： 展现层：  什么是JSP?JavaServer Pages（">
+<meta name="description" content="持久层、业务层、展现层 持久层：数据访问层又称为DAL层，有时候也称为是持久层，其功能主要是负责数据库的访问。 简单的说法就是实现对数据表的Select（查询），Insert（插入），Update（更新），Delete（删除）等操作。 如果要加入ORM的元素，那么就会包括对象和数据表之间的mapping，以及对象实体的持久化。 业务层： 展现层：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="String入门项目开发笔记">
 <meta property="og:url" content="https://wentinghwt.github.io/tinkerbaby.github.io/posts/string_notes/index.html">
 <meta property="og:site_name" content="Tinkerbaby&#39;s Blog">
-<meta property="og:description" content="持久层、业务层、展现层 持久层：数据访问层又称为DAL层，有时候也称为是持久层，其功能主要是负责数据库的访问。 简单的说法就是实现对数据表的Select（查询），Insert（插入），Update（更新），Delete（删除）等操作。 如果要加入ORM的元素，那么就会包括对象和数据表之间的mapping，以及对象实体的持久化。 业务层： 展现层：  什么是JSP?JavaServer Pages（">
+<meta property="og:description" content="持久层、业务层、展现层 持久层：数据访问层又称为DAL层，有时候也称为是持久层，其功能主要是负责数据库的访问。 简单的说法就是实现对数据表的Select（查询），Insert（插入），Update（更新），Delete（删除）等操作。 如果要加入ORM的元素，那么就会包括对象和数据表之间的mapping，以及对象实体的持久化。 业务层： 展现层：">
 <meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0001.png">
 <meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0002.png">
 <meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/error_spring_0004.png">
@@ -94,7 +94,7 @@
 <meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_3.png">
 <meta property="og:image" content="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/tomcat_4.png">
 <meta property="article:published_time" content="2020-03-18T04:01:49.000Z">
-<meta property="article:modified_time" content="2020-04-09T07:29:34.245Z">
+<meta property="article:modified_time" content="2020-04-09T09:59:58.555Z">
 <meta property="article:author" content="Wenting HAN">
 <meta property="article:tag" content="Spring">
 <meta property="article:tag" content="Jetty">
@@ -370,12 +370,12 @@
 <li>业务层：</li>
 <li>展现层：</li>
 </ol>
+<a id="more"></a>
+
 <h3 id="什么是JSP"><a href="#什么是JSP" class="headerlink" title="什么是JSP?"></a>什么是JSP?</h3><p>JavaServer Pages（JSP）是一種技術，用於開發支持動態內容，這有助於開發人員通過使用專用的JSP標簽中插入Java代碼的HTML頁麵的網頁，其中大部分開始 &lt;% 並以標簽 %&gt; 結束。</p>
 <p>一個JavaServer頁麵的組件類型為Java servlet，其目的是實現一個用戶界麵的Java Web應用程序。 Web開發人員編寫JSP為文本文件，結合HTML或XHTML代碼，XML元素，並嵌入JSP動作和命令。</p>
 <p>使用JSP，用戶通過網頁形式，從數據庫或其他來源目前記錄收集輸入，並動態創建的網頁。</p>
 <p>JSP標簽可用於各種目的，例如從數據庫中檢索信息或登記的用戶偏好，訪問JavaBeans組件，傳遞頁麵之間的控製和請求，網頁等之間共享信息</p>
-<a id="more"></a>
-
 <h3 id="什么是事务-管理"><a href="#什么是事务-管理" class="headerlink" title="什么是事务(管理)"></a>什么是事务(管理)</h3><p>我们在实际业务场景中，经常会遇到数据频繁修改读取的问题。在同一时刻，不同的业务逻辑对同一个表数据进行修改，这种冲突很可能造成数据不可挽回的错乱，所以我们需要用事务来对数据进行管理。</p>
 <p>事务必须服从ACID原则。ACID指的是原子性（atomicity）、一致性（consistency）、隔离性（isolation）和持久性（durability）。<br>通俗理解，事务其实就是一系列指令的集合。</p>
 <ul>
