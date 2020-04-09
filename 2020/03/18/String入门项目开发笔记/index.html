@@ -498,6 +498,9 @@
           
 
   
+    <div id="gitalk-container"></div>
+    
+  
 
 
 
@@ -793,6 +796,22 @@
 
 
 
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '58fb7dc1347cb3042900',
+          clientSecret: '68faa24be42015b36f6b6a8e9294df6492162936',
+          repo: 'tinkerbaby.github.io',
+          owner: 'WentingHWT',
+          admin: ['WentingHWT'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   
