@@ -383,7 +383,7 @@
   <entry>
     <title>hexo博客搭建记录</title>
     <url>/tinkerbaby.github.io/posts/hexo_note_1/</url>
-    <content><![CDATA[<p><a href="http://fanzhenyu.cn/2016/11/30/Github%20Pages%20+%20Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">hexo博客搭建教程</a><br>参考：<a href="http://www.hongscar.cn/Hexo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html" target="_blank" rel="noopener">小洪的搭建笔记</a><a href="http://www.hongscar.cn/Hexo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html" target="_blank" rel="noopener">http://www.hongscar.cn/Hexo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html</a></p>
+    <content><![CDATA[<p><a href="http://fanzhenyu.cn/2016/11/30/Github%20Pages%20+%20Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">hexo博客搭建教程</a><br>参考：<a href="http://www.hongscar.cn/Hexo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html" target="_blank" rel="noopener">小洪的搭建笔记</a></p>
 <p>补充搭建记录：</p>
 <h3 id="在Next主题中-集成Gitalk评论系统"><a href="#在Next主题中-集成Gitalk评论系统" class="headerlink" title="在Next主题中 集成Gitalk评论系统"></a>在Next主题中 集成Gitalk评论系统</h3><p>教程：<a href="https://asdfv1929.github.io/2018/01/20/gitalk/" target="_blank" rel="noopener">asdfv1929</a></p>
 <ol>
