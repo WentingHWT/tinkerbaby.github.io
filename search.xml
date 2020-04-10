@@ -380,4 +380,24 @@
         <tag>Inherit</tag>
       </tags>
   </entry>
+  <entry>
+    <title>hexo博客搭建记录</title>
+    <url>/tinkerbaby.github.io/posts/hexo_note_1/</url>
+    <content><![CDATA[<p><a href="http://fanzhenyu.cn/2016/11/30/Github%20Pages%20+%20Hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">hexo博客搭建教程</a><br>参考：<a href="http://www.hongscar.cn/Hexo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html" target="_blank" rel="noopener">小洪的搭建笔记</a><a href="http://www.hongscar.cn/Hexo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html" target="_blank" rel="noopener">http://www.hongscar.cn/Hexo%E6%90%AD%E5%BB%BA%E8%AE%B0%E5%BD%95.html</a></p>
+<p>补充搭建记录：</p>
+<h3 id="在Next主题中-集成Gitalk评论系统"><a href="#在Next主题中-集成Gitalk评论系统" class="headerlink" title="在Next主题中 集成Gitalk评论系统"></a>在Next主题中 集成Gitalk评论系统</h3><p>教程：<a href="https://asdfv1929.github.io/2018/01/20/gitalk/" target="_blank" rel="noopener">asdfv1929</a></p>
+<ol>
+<li><p>照着教程做下来第一个常见的报错：</p>
+<a id="more"></a>
+<p><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/hexo_01.png" alt=""><br>要先用你配置中的的adminUser对应的帐号先登录访问一次文章，然后才会初始化评论。一篇文章的评论对应一个issue，比如我刚刚发现我有一篇文章没有开启评论，也是显示要联系@hongscar添加评论，就是先用这个账号登录，然后大概就会在这个评论项目里添加一条issue，这样其他用户才能访问。</p>
+</li>
+<li><p>然后部分文章可行了，但中文标题的文章通常会出现如下问题</p>
+</li>
+</ol>
+<p><img src="https://tinkerbabyblog-1301804286.cos.ap-guangzhou.myqcloud.com/hexo_02.png" alt=""><br>Google搜索了一下，是因为域名太长的问题导致gitalk不能处理导致的。因为域名中的中文字会解析成数字符号字母所以url会非常长，另外hexo默认的url还包含文章的日期等等。<br>解决办法就是修改url的默认格式，看<a href="https://zhangjiejun.com/posts/URL_optimization_in_hexo/" target="_blank" rel="noopener">这里</a>。</p>
+]]></content>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
 </search>
